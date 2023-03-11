@@ -1,0 +1,151 @@
+body {
+  min-height:100vh;
+  font-size: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(#58b6b9, #edf1cf);
+}
+
+header {
+  height: 5vh;
+}
+
+.wrapper {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 3em;
+  color: #ecf8f5;
+}
+
+.accordeon {
+  color: #ecf8f5;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(53, 54, 54, 0.2);
+  transition: color 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+  padding-top: 1%;
+}
+
+.accordeon__item {
+  cursor: pointer;
+  border-bottom: 0.1rem solid lightblue;
+  transition: all 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.image__meme {
+  width: 90%;
+  max-height: 0;
+  transform: scale(0.1);
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+.accordeon__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2em;
+  padding: 2%;
+  cursor: pointer;
+}
+
+.item__text {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 0.9rem;
+  height: 0.7rem;
+  background: url('img/terminal-solid.svg');
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+input:checked+.accordeon__label {
+  color: black;
+}
+
+input:checked+.accordeon__label .icon {
+  transform: rotate(90deg);
+}
+
+input:checked+.accordeon__label .image__meme {
+  max-height: 55vh;
+  transform: scale(1);
+  transition: all 0.7s cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+
+@media (min-width: 320px) {
+  body {
+    font-size: 50%;
+  }
+
+  .wrapper {
+    max-width: 80%;
+  }
+
+  .icon {
+    width: 1rem;
+    height: 0.8rem;
+  }
+}
+
+@media (min-width: 820px) {
+  body {
+    font-size: 75%;
+  }
+
+  .wrapper {
+    max-width: 60%;
+  }
+
+  .icon {
+    width: 1.7rem;
+    height: 1.4rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 100%;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 1.7rem;
+  }
+}
+
+@media (hover: hover) {
+  .accordeon:hover {
+    color: black;
+  }
+
+  .accordeon:hover>.accordeon__item>.accordeon__label .icon {
+    opacity: 1;
+  }
+
+   .accordeon__item:hover>.accordeon__label .icon {
+    transform: rotate(90deg);
+  }
+
+  .accordeon__label:hover .image__meme {
+    max-height: 55vh;
+    transform: scale(1);
+    transition: all 0.7s cubic-bezier(0.37, 0, 0.63, 1);
+  }
+
+  .accordeon__item:active {
+    opacity: 0.6;
+    color: #ecf8f5;
+  }
+
+  .accordeon__item:active>input:not(:checked)+.accordeon__label .icon {
+    filter: invert(89%) sepia(17%) saturate(107%) hue-rotate(101deg) brightness(109%) contrast(94%);
+  }
+}
